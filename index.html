@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Cases Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body onload="fetch()">
+
+    <section class="container wholecont">
+        <!--Navigation bar-->
+        <section>
+            <nav>
+
+                <div id="nav-placeholder">
+                </div>
+                <script>
+                    $(function () {
+                        $("#nav-placeholder").load("nav.html");
+                    });
+                </script>
+
+            </nav>
+        </section>
+        <!--end of Navigation bar-->
+        
+        <!-- Fetching Title of Page -->
+        <br><h1 id="pagetitle"></h1><br><br>
+
+        <!-- First Table to Show Global Data -->
+        <section>
+            <h2 class="maincontent">Global Covid-19 Cases Live Data</h2>
+            <div class="table-responsive container-fluid">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Total Cases</th>
+                            <th>Total Deaths</th>
+                            <th>Total Recoverd</th>
+                            <th>Total Confirmed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="data"></tr>
+                    </tbody>
+                </table>
+                <!-- Buttont to refresh live data for Global table without reloading Whole page. -->
+
+                <div class="text-center">
+                    <button onclick="refreshdata()" class="btn btn-danger btn-block align-c">Refresh Global Data</button>
+                </div>
+                <!-- End of Buttont to refresh live data for Global table without reloading Whole page. -->
+
+            </div>
+        </section>
+
+        <!-- End of First Table to Show Global Data -->
+
+        <!-- Adding Space between both sections -->
+        <br><br><br> 
+
+
+
+        <!--Second table to show country wise data in single table-->
+        <section>
+            <h2 class="maincontent">Countires/Regions Based Covid-19 live Data</h2>
+            <div class="table-responsive corona_update container-fluid">
+                <table class="table table-bordered table-striped text-center" id="tbval">
+                    <tr>
+                        <th>Country/Region</th>
+                        <th>TotalConfirmed</th>
+                        <th>TotalRecovered</th>
+                        <th>TotalDeaths</th>
+                        <th>NewConfirmed</th>
+                        <th>NewRecovered</th>
+                        <th>NewsDeaths</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!--End of Second table to show country wise data in single table-->
+        <div class="maincontent">
+            <p><i>* To Get Refreshed CountiresWise data, refresh this page. </i></p>
+        </div>
+
+    </section>
+</body>
+
+<script>
+
+    init()
+
+    function init() {
+        var url = "https://api.covid19api.com/summary"
+
+        var data = ' '
+
+        $.get(url, function (data) {
+            console.log(data.Global)
+
+            data = ` 
+            <td style="background-color:#7a4a91; color:#fff;">Global</td>
+            <td style="background-color:#4bb7d8">${data.Global.TotalConfirmed}</td>
+            <td style="background-color:#f36e23">${data.Global.TotalDeaths}</td>
+            <td style="background-color:#9cc850">${data.Global.TotalRecovered}</td>
+            <td style="background-color:#f36e23">${data.Global.TotalConfirmed}</td>      
+                            
+            `
+            $("#data").html(data)
+
+        })
+    }
+
+    function refreshdata() {
+        clearData()
+        init()
+
+    }
+
+    function clearData() {
+        $("#data").empty()
+
+    }
+
+    document.getElementById("pagetitle").innerHTML = document.title;
+
+</script>
+
+</html>

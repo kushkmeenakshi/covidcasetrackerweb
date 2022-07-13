@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19: Coronavirus disease 2019</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <article class="container wholecont">
+        <nav>
+            <!--Navigation bar-->
+
+            <div id="nav-placeholder"></div>
+            <script>
+                $(function () {
+                    $("#nav-placeholder").load("nav.html");
+                });
+            </script>
+            <!--end of Navigation bar-->
+        </nav>
+        <section>
+            <h1 id="pagetitle"></h1>
+            <br><br>
+        </section>
+
+        <section class="maincontent">
+            <h2>Covid 19 Overview</h2>
+            <p>Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus.
+
+                Most people infected with the virus will experience mild to moderate respiratory illness and recover
+                without
+                requiring special treatment. However, some will become seriously ill and require medical attention.
+                Older
+                people and those with underlying medical conditions like cardiovascular disease, diabetes, chronic
+                respiratory disease, or cancer are more likely to develop serious illness. Anyone can get sick with
+                COVID-19
+                and become seriously ill or die at any age. </p>
+
+            <p>
+                The best way to prevent and slow down transmission is to be well informed about the disease and how
+                the
+                virus spreads. Protect yourself and others from infection by staying at least 1 metre apart from
+                others,
+                wearing a properly fitted mask, and washing your hands or using an alcohol-based rub frequently. Get
+                vaccinated when it’s your turn and follow local guidance.</p>
+
+            <p>
+                The virus can spread from an infected person’s mouth or nose in small liquid particles when they
+                cough,
+                sneeze, speak, sing or breathe. These particles range from larger respiratory droplets to smaller
+                aerosols.
+                It is important to practice respiratory etiquette, for example by coughing into a flexed elbow, and
+                to
+                stay
+                home and self-isolate until you recover if you feel unwell.</p>
+
+            <h2>What is a ‘novel’ coronavirus?</h2>
+            <p>A novel coronavirus (CoV) is a new strain of coronavirus. <br>
+
+                The disease caused by the novel coronavirus first identified in Wuhan, China, has been named
+                coronavirus
+                disease 2019 (COVID-19) – ‘CO’ stands for corona, ‘VI’ for virus, and ‘D’ for disease.
+                Formerly, this disease was referred to as ‘2019 novel coronavirus’ or ‘2019-nCoV.’ <br>
+
+                The COVID-19 virus is a new virus linked to the same family of viruses as Severe Acute Respiratory
+                Syndrome
+                (SARS) and some types of common cold. </p>
+
+
+            <h2>What are the symptoms of coronavirus?</h2>
+            <p>Symptoms can include fever, cough and shortness of breath. In more severe cases, infection can cause
+                pneumonia or breathing difficulties. More rarely, the disease can be fatal. <br>
+
+                These symptoms are similar to the flu (influenza) or the common cold, which are a lot more common
+                than
+                COVID-19. This is why testing is required to confirm if someone has COVID-19. It’s important to
+                remember
+                that key prevention measures are the same – frequent hand washing, and respiratory hygiene (cover
+                your
+                cough
+                or sneeze with a flexed elbow or tissue, then throw away the tissue into a closed bin).</p>
+
+            <h2>How can I avoid the risk of infection?</h2>
+            <img src="images/covidprevent.png" alt="prevention for COVID-19">
+            <p>
+                Note: Go here to <a href="Sympt.html">check cvoid symptoms.</a>
+            </p>
+
+            <h2>How does the COVID-19 virus spread?</h2>
+            <p>The virus is transmitted through direct contact with respiratory droplets of an infected person
+                (generated
+                through coughing and sneezing), and touching surfaces contaminated with the virus. The COVID-19
+                virus
+                may
+                survive on surfaces for several hours, but simple disinfectants can kill it.</p>
+
+            <div>
+                <h2>References:</h2>
+                <ul>
+                    <li>https://www.who.int/health-topics/coronavirus</li>
+                    <li>https://www.unicef.org/india/coronavirus/covid-19</li>
+                </ul>
+            </div>
+        </section>
+    </article>
+</body>
+<script>
+    document.getElementById("pagetitle").innerHTML = document.title;
+</script>
+
+</html>

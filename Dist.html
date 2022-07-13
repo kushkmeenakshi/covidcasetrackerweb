@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="script.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body onload="fetch()">
+    <div class="container">
+        <br><br>
+        <section class="corona_update container-fluid">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered table-striped text-center" id="tbval">
+                    <thead>
+                        <tr>
+                            <th>TotalConfirmed</th>
+                            <th>TotalDeaths</th>
+                            <th>TotalRecovered</th>
+                            <th>Tested</th>
+                            <th>Vaccinated1</th>
+                            <th>Vaccinated2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="data"></tr>
+                        <tr id="row2"></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</body>
+<script>
+
+
+    function fetch() {
+        var url = "https://data.covid19india.org/v4/data.json"
+
+        var data = ' '
+        var row2 = ' '
+        $.get(url, function (data) {
+            console.log(data.HR.total)
+                
+            data = ` 
+            <td>${data.HR.total.confirmed}</td>
+            <td>${data.HR.total.deceased}</td>
+            <td>${data.HR.total.recovered}</td>
+            <td>${data.HR.total.tested}</td>
+            <td>${data.HR.total.vaccinated1}</td>
+            <td>${data.HR.total.vaccinated2}</td>
+                
+            `
+                $("#data").html(data)
+
+        $.get(url, function (row2){
+
+            row2 =`
+            <td>${row2.HR.total.confirmed}</td>
+            <td>${row2.HR.total.deceased}</td>
+            <td>${row2.HR.total.recovered}</td>
+            <td>${row2.HR.total.tested}</td>
+            <td>${row2.HR.total.vaccinated1}</td>
+            <td>${row2.HR.total.vaccinated2}</td>
+            
+            `
+            $("#row2").html(row2)
+        })
+        })
+    }
+</script>
+
+</html>
